@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco dei dadi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+
+            <h1 class='title'>Gioco dei dadi</h1>
+        </header>
+
+        <section id='cpu' class='left'>
+            
+            <h2>CPU</h2>
+            <img src="img/desktop-cpu.png" alt="">
+
+            <div class="die">
+                <div class="score"></div>
+            </div>
+
+        </section>
+        
+
+
+        <section id='player' class='right'>
+
+            <h2>Giocatore</h2>
+
+            <img src="img/user-icon.png" alt="">
+            <div class="die">
+                <div class="score">
+                    <div class="score-point"></div>
+                    <div class="score-point"></div>
+                    <div class="score-point"></div>
+                    <div class="score-point"></div>
+                </div>
+            </div>
+            <button id='throw'>Lancia Dado</button>
+            <span class='message'></span>
+        </section>
+
+
+    </div>
+
+
+    <script type='text/javascript' src="myscript.js"></script>
+</body>
+</html>
