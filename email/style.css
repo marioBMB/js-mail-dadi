@@ -1,5 +1,73 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+h2, .logo {
+    margin-bottom: 2rem;
+}
+
+h4 {
+    margin-bottom: 1em;
+}
+
+button, input {
+    padding: 10px 0;
+}
+
+input {
+    min-width: 250px;
+    font-size: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px 5px;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+label {
+    color: cornflowerblue;
+    font-weight: bolder;
+} 
+
+button {
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    border: 1px solid #ccc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: cornflowerblue;
+    color: white;
+    border: 1px solid white;
+}
+
+#submit {
+    width: 300px;
+    display: block;
+    margin: 20px auto;
+}
+
+.container {
+    width: 80%;
+    background-color: #f8fafc;
+    margin: 0 auto;
+    padding: 10px 20px 20px 20px;
+    text-align: center;
+}
+
+
+i {
+    font-style: normal;
+}
 
 .checkmark::after {
     content:"\2713";
@@ -9,4 +77,12 @@
 .crossmark::after {
     content: "\274C";
     color: red;
+}
+
+.invalid {
+    color: red;
+}
+
+.success {
+    color: green;
 }

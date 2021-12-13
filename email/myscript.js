@@ -1,6 +1,7 @@
 const submitBtn = document.getElementById("submit");
 let verifyMessage = document.getElementById("check-message");
 let userMail = "";
+const input = document.getElementsByTagName("input")[0];
 
 const registeredMails = [
     "simoneantonelli@boolean.it",
@@ -40,16 +41,27 @@ const registeredMails = [
     "vincenzovitellolavoro@gmail.com",
 ];
 
+input.addEventListener('focusin', function(e){
+    this.classList.remove('error');
+    verifyMessage.textContent = "";
+})
 
 submitBtn.addEventListener('click', function(e){
     e.preventDefault(); /* disabilita l'evento submit di default del form */
 
-    userMail = document.getElementById("usermail").value;
+    userMail = document.getElementById("usermail").value.trim();
     console.log(userMail);
-    let pos = checkRegisteredMails(userMail);
-    console.log(pos);
-    verifyMessage.innerHTML = printVerifyMessage(pos);
+    
+    if (userMail != ""){
+        let pos = checkRegisteredMails(userMail);
+        console.log(pos);
+        verifyMessage.innerHTML = printVerifyMessage(pos);
+    }
+    else {
 
+        input.classList.add("error");
+        verifyMessage.innerHTML = "Hai inserito una email vuota";
+    }
 });
 
 
@@ -61,9 +73,10 @@ function checkRegisteredMails(userMail){
 
         if (userMail == registeredMails[i]){
             pos = i;
-            return pos;
+            break;
         }
     }
+    return pos;
 }
 
 function printVerifyMessage(pos){
@@ -72,10 +85,10 @@ function printVerifyMessage(pos){
 
     if (pos == -1){
         icon = "<i class='crossmark'></i>";
-        return icon + " L'email da te inserita non è stata trovata.";
+        return icon + " <span class='invalid'>L'email da te fornita non è stata trovata.</span>";
     }
     else {
         icon = "<i class='checkmark'></i>";
-        return `${icon} Email trovata! Sei stato il  ${parseInt(pos+1)}° utente ad iscriversi`;
+        return `${icon} <span class='success'>Email trovata! Sei stato il  ${parseInt(pos+1)}° utente ad iscriversi </span>`;
     }
 }
