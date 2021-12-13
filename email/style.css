@@ -1,0 +1,12 @@
+
+
+
+.checkmark::after {
+    content:"\2713";
+    color: green;
+}
+
+.crossmark::after {
+    content: "\274C";
+    color: red;
+}
