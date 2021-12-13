@@ -23,7 +23,16 @@ header {
 }
 
 section {
-    padding: 10px;
+    padding: 10px 20px;
+}
+
+section h2 {
+text-align: center;
+}
+
+.content {
+    display: flex;
+    align-items: center;
 }
 
 section#cpu {
@@ -38,6 +47,7 @@ section#player {
 
 section img {
     height: 200px;
+    margin: 10px;
 }
 
 .left {
@@ -56,10 +66,14 @@ section img {
     display: inline-block;
     border-radius: 10px;
     position: relative;
-    transition: transform 1s linear;
+    transition: transform 0.5s ease-out;
     transition-duration: infinite;
+    position: relative;
 }
 
+.die.animate {
+    transform: perspective( 600px ) rotate(360deg);
+}
 
 .score {
     font-size: 3rem;
@@ -70,11 +84,18 @@ section img {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-content: space-evenly;
     width: 70%;
-    min-width: 60px;
+    height: 100%;
+    color: black;
+    transition: display 2s;
+    transition-delay: 1s;
 }
 
+.score.active {
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
 
 
 .score .score-point {
@@ -84,11 +105,19 @@ section img {
     background-color: black;
 }
 
-.score .score-point:nth-child(4){
-
-}
 
 
-.die:hover {
-    transform: perspective( 600px ) rotate(360deg);
+
+
+@keyframes fade-in {
+
+    from {
+        display: none;
+        opacity: 0.5;
+    }
+
+    to {
+        display: flex;
+        opacity: 1;
+    }
 }
