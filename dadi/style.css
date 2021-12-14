@@ -43,7 +43,7 @@ section#cpu {
 }
 
 section#player {
-    background-color: green;
+    background-color: #04aa6d;
     width: calc(50% - 3px);
     float: right;
     
