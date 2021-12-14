@@ -1,11 +1,12 @@
 
-let nomeGiocatore = "";
+let nomeGiocatore = "Giocatore";
 let dadoCPU;
 let dadoGiocatore;
 let messaggioEsito = "";
 
 let sezioneCPU = document.getElementById("cpu");
 let sezioneGiocatore = document.getElementById("player");
+let sezioneRisultati = document.getElementById("result");
 
 const button = document.getElementById("throw");
 
@@ -13,17 +14,20 @@ const button = document.getElementById("throw");
 window.addEventListener('load', function() {
 
     
-    nomeGiocatore = capitalize(prompt("Il tuo nome: "));
+    const temp = capitalize(prompt("Il tuo nome: ").trim());
     
-    if (nomeGiocatore != null) {
+    if (temp != null && temp != "") {
+        nomeGiocatore = temp;
+        sezioneGiocatore.getElementsByTagName("h2")[0].innerHTML = nomeGiocatore;
         alert("È il turno della CPU: ");
+        sezioneCPU.classList.add('active');
         sezioneCPU.getElementsByClassName("die")[0].classList.toggle("animate");
         dadoCPU = lancioDado();
         sezioneCPU.getElementsByClassName("score")[0].innerHTML = dadoCPU;
         
-        const messaggio = "La cpu ha totalizzato: "+ dadoCPU;
-        sezioneCPU.append(messaggio);
         alert("È il tuo turno, " + nomeGiocatore + "!");
+        sezioneCPU.classList.remove('active');
+        sezioneGiocatore.classList.add('active');
     }
 });
 
@@ -37,7 +41,7 @@ button.addEventListener("click", function(){
     sezioneGiocatore.getElementsByClassName("score")[0].innerHTML = dadoGiocatore;
     sezioneGiocatore.getElementsByClassName("score")[0].classList = ("score active");
 
-    messaggioEsito = `Hai totalizzato: ${dadoGiocatore}. \n `
+    messaggioEsito = `Hai totalizzato: ${dadoGiocatore}. <br> `
     
     if (dadoCPU > dadoGiocatore){
         
@@ -45,13 +49,13 @@ button.addEventListener("click", function(){
     }
     else if (dadoGiocatore > dadoCPU){
         
-        messaggioEsito += nomeGiocatore + " Hai vinto!"
+        messaggioEsito +=  "Hai vinto!";
     }
     else {
         messaggioEsito += "Pareggio";
     }
 
-    let messageBox = sezioneGiocatore.getElementsByClassName("message")[0];
+    let messageBox = sezioneRisultati.getElementsByClassName("message")[0];
     messageBox.innerHTML = messaggioEsito;
     
 });

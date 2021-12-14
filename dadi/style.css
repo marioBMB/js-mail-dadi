@@ -19,11 +19,11 @@ body {
 
 
 header {
-    padding: 10px;
+    padding: 20px;
 }
 
 section {
-    padding: 10px 20px;
+    padding: 20px;
 }
 
 section h2 {
@@ -33,16 +33,33 @@ text-align: center;
 .content {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 section#cpu {
     background-color: cornflowerblue;
-    width: 50%;
+    width: calc(50% - 3px);
+    float: left;
 }
 
 section#player {
     background-color: green;
-    width: 50%;
+    width: calc(50% - 3px);
+    float: right;
+    
+}
+
+section.active {
+    box-shadow: inset 0 0 0 5px yellow;
+}
+
+section#player h2 {
+    color: maroon;
+}
+
+section#result {
+    width: 100%;
+    text-align: center;
 }
 
 section img {
@@ -60,15 +77,14 @@ section img {
 
 
 .die {
+    position: relative;
+    display: inline-block;
     height: 80px;
     width: 80px;
     background-color: white;
-    display: inline-block;
     border-radius: 10px;
-    position: relative;
     transition: transform 0.5s ease-out;
     transition-duration: infinite;
-    position: relative;
 }
 
 .die.animate {
@@ -76,17 +92,16 @@ section img {
 }
 
 .score {
-    font-size: 3rem;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    font-size: 3rem;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-content: space-evenly;
     width: 70%;
-    height: 100%;
     color: black;
     transition: display 2s;
     transition-delay: 1s;
@@ -120,4 +135,11 @@ section img {
         display: flex;
         opacity: 1;
     }
+}
+
+
+#result {
+    font-size: 3rem;
+    color: red;
+    text-shadow: 4px 4px darkkhaki;
 }
